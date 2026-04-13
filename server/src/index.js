@@ -77,19 +77,6 @@ app.use('/api/v1/certifications', certificationRoutes);
 app.use('/api/v1/annual-reviews', annualReviewRoutes);
 app.use('/api/v1/skills', skillRoutes);
 
-// === STATIC FRONTEND SERVING ===
-const distPath = path.join(__dirname, '../../client/dist');
-app.use(express.static(distPath));
-
-// For SPA routing: serve index.html for non-API routes
-app.get('*', (req, res, next) => {
-    if (!req.path.startsWith('/api/') && !req.path.startsWith('/uploads/')) {
-        res.sendFile(path.join(distPath, 'index.html'));
-    } else {
-        next(); // continues to error handlers for missing API/static routes
-    }
-});
-
 // === ERROR HANDLING ===
 app.use(notFound);
 app.use(errorHandler);
