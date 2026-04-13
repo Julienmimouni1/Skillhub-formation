@@ -1,13 +1,26 @@
 const fs = require('fs');
 const path = require('path');
-const pdf = require('pdf-parse');
+// pdf-parse causes issues on Vercel because of missing DOMMatrix/Canvas
+let pdf = null;
+if (process.env.NODE_ENV !== 'production') {
+    try {
+        pdf = require('pdf-parse');
+    } catch (e) {
+        console.warn('pdf-parse could not be loaded');
+    }
+}
 const mammoth = require('mammoth');
 
 const extractText = async (filePath) => {
+    // On Vercel, file system is read-only and pdf-parse is broken
+    if (process.env.NODE_ENV === 'production') {
+        return "Analyse de document désactivée en production (Vercel).";
+    }
+
     const ext = path.extname(filePath).toLowerCase();
 
     try {
-        if (ext === '.pdf') {
+        if (ext === '.pdf' && pdf) {
             const dataBuffer = fs.readFileSync(filePath);
             const data = await pdf(dataBuffer);
             return data.text;
@@ -51,23 +64,13 @@ const extractActionsFromText = (text) => {
             const cleanLine = line.replace(bulletRegex, '').trim();
             // Check if starts with verb or is significant
             if (cleanLine.length > 10) {
-                // Simple cleanup
                 actions.push(cleanLine);
-                isAction = true;
-            }
-        }
-
-        // Check 2: Starts with action verb (if not already added)
-        if (!isAction) {
-            const firstWord = line.split(' ')[0].toLowerCase();
-            if (actionVerbs.some(v => firstWord.startsWith(v))) {
-                actions.push(line);
             }
         }
     }
 
-    // Deduplicate and limit
-    return [...new Set(actions)].slice(0, 10);
+    // Limit to top 5 actions
+    return actions.slice(0, 5);
 };
 
 module.exports = { extractText, extractActionsFromText };
