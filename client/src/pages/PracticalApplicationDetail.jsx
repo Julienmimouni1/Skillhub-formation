@@ -531,7 +531,7 @@ export default function PracticalApplicationDetail() {
                 setManagerReviewedAt(validationDate);
             }
 
-            const response = await axios.post(`http://localhost:3001/api/v1/plans/request/${id}`, {
+            const response = await axios.post(`/plans/request/${id}`, {
                 key_takeaways: JSON.stringify(skills),
                 confidence_level: avgConfidence,
                 impact_rating: impactRating,
@@ -560,8 +560,8 @@ export default function PracticalApplicationDetail() {
     const fetchData = async () => {
         try {
             const [reqRes, planRes] = await Promise.all([
-                axios.get(`http://localhost:3001/api/v1/requests/${id}`, { withCredentials: true }),
-                axios.get(`http://localhost:3001/api/v1/plans/request/${id}`, { withCredentials: true })
+                axios.get(`/requests/${id}`, { withCredentials: true }),
+                axios.get(`/plans/request/${id}`, { withCredentials: true })
             ]);
             setRequest(reqRes.data.request);
             const planData = planRes.data;
@@ -620,7 +620,7 @@ export default function PracticalApplicationDetail() {
         files.forEach(file => formData.append('documents', file));
 
         try {
-            await axios.post(`http://localhost:3001/api/v1/requests/${id}/documents`, formData, {
+            await axios.post(`/requests/${id}/documents`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
                 withCredentials: true
             });
@@ -634,7 +634,7 @@ export default function PracticalApplicationDetail() {
     const handleAddLog = async (logData) => {
         if (!plan) return;
         try {
-            const response = await axios.post(`http://localhost:3001/api/v1/plans/${plan.id}/logs`, logData, { withCredentials: true });
+            const response = await axios.post(`/plans/${plan.id}/logs`, logData, { withCredentials: true });
             setPlan(prev => ({
                 ...prev,
                 practice_logs: [response.data, ...(prev.practice_logs || [])]
@@ -648,7 +648,7 @@ export default function PracticalApplicationDetail() {
     const handleDeleteLog = async (logId) => {
         if (!confirm('Supprimer cette entrée ?')) return;
         try {
-            await axios.delete(`http://localhost:3001/api/v1/plans/logs/${logId}`, { withCredentials: true });
+            await axios.delete(`/plans/logs/${logId}`, { withCredentials: true });
             setPlan(prev => ({
                 ...prev,
                 practice_logs: (prev.practice_logs || []).filter(l => l.id !== logId)

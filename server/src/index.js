@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
+const path = require('path');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 
 dotenv.config();
@@ -23,7 +24,7 @@ app.use(cors({
 app.use((req, res, next) => {
     res.setHeader(
         'Content-Security-Policy',
-        "default-src 'self'; connect-src 'self' http://localhost:3001; script-src 'self' 'unsafe-inline';"
+        "default-src 'self'; connect-src 'self'; script-src 'self' 'unsafe-inline';"
     );
     next();
 });
@@ -75,6 +76,19 @@ app.use('/api/v1/proposals', proposalRoutes);
 app.use('/api/v1/certifications', certificationRoutes);
 app.use('/api/v1/annual-reviews', annualReviewRoutes);
 app.use('/api/v1/skills', skillRoutes);
+
+// === STATIC FRONTEND SERVING ===
+const distPath = path.join(__dirname, '../../client/dist');
+app.use(express.static(distPath));
+
+// For SPA routing: serve index.html for non-API routes
+app.get('*', (req, res, next) => {
+    if (!req.path.startsWith('/api/') && !req.path.startsWith('/uploads/')) {
+        res.sendFile(path.join(distPath, 'index.html'));
+    } else {
+        next(); // continues to error handlers for missing API/static routes
+    }
+});
 
 // === ERROR HANDLING ===
 app.use(notFound);

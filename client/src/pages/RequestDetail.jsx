@@ -334,7 +334,7 @@ export default function RequestDetail() {
                                                 </div>
                                                 <div className="ml-4 flex-shrink-0 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                                     <a
-                                                        href={`http://localhost:3001/${doc.file_path}`}
+                                                        href={`/${doc.file_path}`}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
                                                         className="p-2 text-gray-400 hover:text-navy-600 rounded-full hover:bg-gray-100"
