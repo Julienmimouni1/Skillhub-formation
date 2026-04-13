@@ -1,0 +1,14 @@
+2025-11-28T22:53:56.424Z - Checking permissions for User: {"userId":2,"role":"manager","iat":1764370436,"exp":1764456836} Request Manager: 2
+2025-11-28T22:53:56.425Z - ACCESS GRANTED
+2025-11-28T22:55:23.066Z - Checking permissions for User: {"userId":2,"role":"manager","iat":1764370504,"exp":1764456904} Request Manager: 2
+2025-11-28T22:55:23.067Z - ACCESS GRANTED
+2025-11-28T22:55:23.076Z - Checking permissions for User: {"userId":2,"role":"manager","iat":1764370504,"exp":1764456904} Request Manager: 2
+2025-11-28T22:55:23.077Z - ACCESS GRANTED
+2025-11-28T22:56:25.595Z - Checking permissions for User: {"userId":2,"role":"manager","iat":1764370504,"exp":1764456904} Request Manager: 2
+2025-11-28T22:56:25.596Z - ACCESS GRANTED
+2025-11-28T22:56:25.601Z - Checking permissions for User: {"userId":2,"role":"manager","iat":1764370504,"exp":1764456904} Request Manager: 2
+2025-11-28T22:56:25.602Z - ACCESS GRANTED
+2025-11-28T22:57:10.913Z - Checking permissions for User: {"userId":2,"role":"manager","iat":1764370616,"exp":1764457016} Request Manager: 2
+2025-11-28T22:57:10.914Z - ACCESS GRANTED
+2025-11-28T22:57:10.922Z - Checking permissions for User: {"userId":2,"role":"manager","iat":1764370616,"exp":1764457016} Request Manager: 2
+2025-11-28T22:57:10.923Z - ACCESS GRANTED

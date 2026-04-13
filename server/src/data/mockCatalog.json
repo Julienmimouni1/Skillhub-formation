@@ -1,0 +1,122 @@
+[
+    {
+        "id": "ext_001",
+        "provider": "Cegos",
+        "title": "Management d'équipe : les fondamentaux",
+        "description": "Acquérir les méthodes et outils pour animer, motiver et piloter son équipe au quotidien. Apprendre à déléguer et gérer les conflits.",
+        "cost": 1450.00,
+        "duration_days": 3,
+        "type": "PLAN_DEV",
+        "url": "https://www.cegos.fr/formation-management-equipe"
+    },
+    {
+        "id": "ext_002",
+        "provider": "Orsys",
+        "title": "React : Développement d'applications Web modernes",
+        "description": "Maîtriser les concepts fondamentaux de React (Components, Hooks, State) pour créer des SPA performantes. Inclut Redux et React Router.",
+        "cost": 2100.00,
+        "duration_days": 4,
+        "type": "PLAN_DEV",
+        "url": "https://www.orsys.fr/formation-react"
+    },
+    {
+        "id": "ext_003",
+        "provider": "MC2I",
+        "title": "Gestion de projet Agile Scrum",
+        "description": "Comprendre et appliquer la méthodologie Scrum. Rôles (PO, Scrum Master), cérémonies et artefacts. Préparation à la certification PSM I.",
+        "cost": 1200.00,
+        "duration_days": 2,
+        "type": "PLAN_DEV",
+        "url": "https://www.mc2i.fr/formation-agile"
+    },
+    {
+        "id": "ext_004",
+        "provider": "OpenClassrooms",
+        "title": "Parcours Chef de Projet Digital",
+        "description": "Formation certifiante en ligne pour piloter des projets numériques de A à Z. Gestion de budget, planning, et équipes techniques.",
+        "cost": 3500.00,
+        "duration_days": 180,
+        "type": "CPF",
+        "url": "https://openclassrooms.com/fr/paths/chef-de-projet-digital"
+    },
+    {
+        "id": "ext_005",
+        "provider": "Cegos",
+        "title": "Communication interpersonnelle et assertivité",
+        "description": "Savoir s'affirmer dans ses relations professionnelles tout en respectant les autres. Gagner en impact et en confiance.",
+        "cost": 1350.00,
+        "duration_days": 3,
+        "type": "PLAN_DEV",
+        "url": "https://www.cegos.fr/formation-communication"
+    },
+    {
+        "id": "ext_006",
+        "provider": "AFPA",
+        "title": "Habilitation Électrique B1V-B2V",
+        "description": "Formation réglementaire pour effectuer des travaux d'ordre électrique en basse tension. Sécurité et prévention des risques.",
+        "cost": 450.00,
+        "duration_days": 2,
+        "type": "OBLIGATOIRE",
+        "url": "https://www.afpa.fr/formation-habilitation-electrique"
+    },
+    {
+        "id": "ext_007",
+        "provider": "Orsys",
+        "title": "Sécurité informatique : Sensibilisation",
+        "description": "Les bonnes pratiques pour protéger son poste de travail et les données de l'entreprise. Phishing, mots de passe, ingénierie sociale.",
+        "cost": 600.00,
+        "duration_days": 1,
+        "type": "OBLIGATOIRE",
+        "url": "https://www.orsys.fr/formation-securite"
+    },
+    {
+        "id": "ext_008",
+        "provider": "Udemy Business",
+        "title": "Excel Expert : Maîtriser les TCD et Macros",
+        "description": "Formation avancée sur Excel. Tableaux croisés dynamiques, formules complexes et introduction au VBA pour automatiser les tâches.",
+        "cost": 199.00,
+        "duration_days": 2,
+        "type": "PLAN_DEV",
+        "url": "https://www.udemy.com/course/excel-expert"
+    },
+    {
+        "id": "ext_009",
+        "provider": "Cegos",
+        "title": "Anglais professionnel : Business English",
+        "description": "Améliorer son anglais pour les réunions, présentations et négociations internationales. Focus sur le vocabulaire des affaires.",
+        "cost": 1800.00,
+        "duration_days": 5,
+        "type": "PLAN_DEV",
+        "url": "https://www.cegos.fr/formation-anglais"
+    },
+    {
+        "id": "ext_010",
+        "provider": "Orsys",
+        "title": "DevOps : Intégration et Déploiement Continus (CI/CD)",
+        "description": "Mettre en place une chaîne CI/CD avec Jenkins, Docker et Kubernetes. Automatiser les tests et les déploiements.",
+        "cost": 2300.00,
+        "duration_days": 4,
+        "type": "PLAN_DEV",
+        "url": "https://www.orsys.fr/formation-devops"
+    },
+    {
+        "id": "ext_011",
+        "provider": "Human Skills",
+        "title": "Gestion du stress et des émotions",
+        "description": "Comprendre les mécanismes du stress pour mieux le gérer. Techniques de relaxation et de prise de recul en situation professionnelle.",
+        "cost": 950.00,
+        "duration_days": 2,
+        "type": "PLAN_DEV",
+        "url": "https://www.humanskills.fr/stress"
+    },
+    {
+        "id": "ext_012",
+        "provider": "DataCamp",
+        "title": "Data Science avec Python",
+        "description": "Apprendre à manipuler et analyser des données avec Pandas, NumPy et Matplotlib. Introduction au Machine Learning.",
+        "cost": 400.00,
+        "duration_days": 5,
+        "type": "PLAN_DEV",
+        "url": "https://www.datacamp.com/python"
+    }
+]

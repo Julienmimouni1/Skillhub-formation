@@ -1,0 +1,3215 @@
+[
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-101"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Visiteur"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "voir une page de connexion"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "pouvoir m'identifier"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Champs email, mot de passe.\n- Bouton Se connecter.\n- Lien Mot de passe oublié (Hors V1)."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-102"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Utilisateur (tous)"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "me connecter avec mon email et mot de passe"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "accéder à mon espace personnel"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Si succès : redirection vers le dashboard.\n- Si échec : message d'erreur clair (ex: Email ou mot de passe incorrect).\n- Le JWT est stocké en cookie httpOnly."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-103"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Utilisateur connecté"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "pouvoir me déconnecter"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "sécuriser mon compte"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Bouton Se déconnecter.\n- Redirection vers la page de connexion.\n- Le cookie JWT est supprimé."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-104"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Utilisateur connecté"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "accéder à ma page Mon Profil"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "voir mes informations personnelles"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Affiche : Nom, Prénom, Email, Rôle, Département, Manager N+1."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-105"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Utilisateur connecté"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "(ne pas) pouvoir modifier mon rôle ou mon manager"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "garantir l'intégrité de l'organigramme"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Les champs Rôle, Département, Manager sont en lecture seule."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-201"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Collaborateur"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "accéder à mon dashboard personnel"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "voir la liste de *mes* demandes et leur statut"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Affiche un tableau de *mes* demandes (Titre, Statut, Coût, Date).\n- Affiche un bouton Nouvelle Demande."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-202"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Collaborateur"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "cliquer sur Nouvelle Demande"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "accéder au formulaire de création"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Affiche le formulaire de soumission vierge."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-203"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Collaborateur"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "remplir les champs de base de ma demande"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "la qualifier précisément"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Champs : Titre, Description, Coût estimé (HT), Type (Obligatoire, Plan, CPF...)."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-204"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Collaborateur"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "sélectionner un organisme de formation"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "spécifier qui dispense la formation"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Peut sélectionner dans une liste (table `providers`).\n- Peut ajouter le nom d'un nouvel organisme (crée une entrée simple)."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-205"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Collaborateur"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "renseigner les dates de début et de fin souhaitées"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "informer sur la période"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Utilisation de sélecteurs de date (calendriers)."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-206"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Collaborateur"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "uploader des documents joints"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "fournir le devis et le programme"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Champ d'upload (glisser-déposer).\n- Accepte PDF, DOCX, PNG, JPG.\n- Les fichiers sont liés à la demande (table `documents`)."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-207"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Collaborateur"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "sauvegarder ma demande en brouillon (`DRAFT`)"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "y revenir plus tard avant de la soumettre"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Bouton Enregistrer en brouillon.\n- La demande apparaît dans mon dashboard avec le statut `DRAFT`."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-208"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Collaborateur"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "soumettre ma demande pour validation"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "lancer le workflow d'approbation"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Bouton Soumettre.\n- Vérification : tous les champs obligatoires sont remplis.\n- Statut passe à `PENDING_MANAGER`."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-209"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Collaborateur"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "voir le statut de ma demande changer en temps réel"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "suivre son avancée"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Mon dashboard reflète le statut (`PENDING_MANAGER`, `PENDING_RH`, `APPROVED`...)."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-210"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Collaborateur"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "recevoir une notification quand ma demande est approuvée"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "être informé de la décision finale"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Email reçu (via Make) quand statut = `APPROVED`."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-211"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Collaborateur"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "recevoir une notification (avec motif) si ma demande est refusée"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "comprendre la raison du refus"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Email reçu (via Make) quand statut = `REJECTED`.\n- L'email contient le commentaire de refus."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-212"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Collaborateur"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "voir l'historique des validations sur ma demande"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "savoir qui a fait quoi"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Onglet Historique sur le détail de la demande.\n- Affiche : Validé par M. Martin (Manager), Validé par Mme Dupont (RH)."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-213"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Collaborateur"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "(ne pas) voir les demandes des autres collègues"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "garantir la confidentialité"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- L'API doit retourner *uniquement* les demandes où `user_id` = mon ID."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-214"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Collaborateur"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "modifier ma demande si elle est en `DRAFT`"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "corriger des erreurs"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Le formulaire est éditable si `status` = `DRAFT`."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-215"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Collaborateur"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "(ne pas) pouvoir modifier ma demande après soumission"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "garantir l'intégrité du workflow"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Le formulaire est en lecture seule si `status` != `DRAFT`."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-216"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Collaborateur"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "uploader le programme de formation lors de la création de ma demande"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "fournir le document de référence"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Champ d'upload pour le programme de formation.\n- Formats acceptés : JPG, JPEG, PNG, PDF.\n- Le fichier est lié à la demande avec le type `PROGRAMME`."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-217"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Collaborateur"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "recevoir des suggestions de formations en tapant le nom"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "trouver facilement des formations disponibles en France"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Lors de la saisie du titre, affichage de suggestions basées sur un catalogue de formations.\n- Les suggestions proviennent d'une recherche dans un catalogue intégré de formations françaises.\n- Possibilité de sélectionner une suggestion pour pré-remplir les champs."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-218"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Collaborateur"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "consulter le catalogue de formations intégré"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "découvrir les formations disponibles en France"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Accès à un catalogue de formations avec recherche par mots-clés.\n- Affichage des formations avec organisme, description, durée, coût estimé.\n- Possibilité d'ajouter une formation du catalogue à ma demande."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-301"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Manager"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "accéder à un dashboard Mon Équipe"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "voir les demandes de mes collaborateurs directs en attente"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Affiche un tableau des demandes où `manager_id` = mon ID ET `status` = `PENDING_MANAGER`."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "update",
+    "page_id": "2b201e14-8ca3-80fc-b62c-f7bfc90b394f",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-302"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Manager"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "recevoir une notification (Email/Slack) quand une demande m'est assignée"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "être réactif et ne pas bloquer le process"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Make envoie un message quand une demande passe à `PENDING_MANAGER`."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-303"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Manager"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "consulter le détail complet d'une demande"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "prendre une décision éclairée"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Vois tous les champs (Titre, Coût, Type...).\n- Peux télécharger les pièces jointes (devis, programme)."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-304"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Manager"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "voir un rappel visuel du budget de mon département"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "valider en conscience des coûts"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Affiche : Budget dispo, Budget engagé, Coût de la demande."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-305"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Manager"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Approuver la demande"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "l'envoyer à l'étape suivante (RH)"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Bouton Approuver.\n- Statut passe à `PENDING_RH`.\n- Une ligne est ajoutée à `validation_history`."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-306"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Manager"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Refuser la demande"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "la stopper pour une raison valable"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Bouton Refuser.\n- Un champ Motif (commentaire) devient **obligatoire**.\n- Statut passe à `REJECTED`.\n- L'historique est mis à jour."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-307"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Manager"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Demander un complément"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "demander une correction au collaborateur"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Bouton Demander complément.\n- Champ Commentaire obligatoire.\n- Statut repasse à `DRAFT`."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-311"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Manager"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "cliquer sur une demande de mon équipe"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "consulter le détail complet pour prendre une décision éclairée"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Clic sur une demande dans le tableau du dashboard.\n- Redirection vers une page de détail affichant toutes les informations.\n- Affichage des documents joints (programme, devis).\n- Affichage de l'historique des validations."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "update",
+    "page_id": "2b201e14-8ca3-8002-bb25-f7da1a90e994",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-312"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Manager"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "mettre une demande en Priorité 2"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "mettre en standby pour arbitrage ultérieur"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Bouton Priorité 2 disponible sur les demandes `PENDING_MANAGER`.\n- Champ Commentaire optionnel pour expliquer la raison.\n- Statut passe à `PRIORITY_2`.\n- La demande reste visible mais en attente d'arbitrage.\n- L'historique est mis à jour."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-313"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Manager"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "voir les demandes en Priorité 2 dans mon dashboard"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "suivre les demandes en standby"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Les demandes `PRIORITY_2` apparaissent dans le tableau du dashboard manager.\n- Affichage distinctif du statut `PRIORITY_2`.\n- Possibilité de les réactiver ultérieurement."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-308"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Manager"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "voir l'historique des demandes de mon équipe (pas seulement les miennes)"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "suivre le développement de mes N-1"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Onglet Historique Équipe affichant toutes les demandes (approuvées, refusées...) de ses N-1."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "update",
+    "page_id": "2b201e14-8ca3-8067-96a2-dea1ed986ab5",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-309"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Manager"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "(ne pas) voir les demandes d'autres départements"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "garantir le cloisonnement des données"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- L'API doit filtrer les demandes basées sur l'ID du manager."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-310"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Manager"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "recevoir un rappel si une demande est en attente chez moi > 3 jours"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "ne pas oublier de valider"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Scénario Make Rappel Manager."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-314"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Manager"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "voir une page dédiée Budget équipe"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "avoir une vision précise et concrète du budget"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Nouvelle section dans la sidebar.\n- Affiche : Budget Initial, Budget Engagé (Validé/Planifié), Budget Consommé (Réalisé), Budget Restant."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-401"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "RH"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "accéder à un dashboard global"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "voir *toutes* les demandes en attente de validation RH"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Affiche un tableau de *toutes* les demandes avec `status` = `PENDING_RH`."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "update",
+    "page_id": "2b201e14-8ca3-800a-93c9-dd5c6945e280",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-402"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "RH"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "voir l'état des budgets de *tous* les départements"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "piloter la masse budgétaire"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Affiche le dashboard des budgets (Alloué, Engagé, Réalisé, Dispo) par département."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "update",
+    "page_id": "2b201e14-8ca3-805c-978f-fc2cf4a221d0",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-403"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "RH"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "consulter le détail complet d'une demande"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "vérifier la conformité et le budget"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Vois le détail + l'historique (qui a validé avant moi)."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-404"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "RH"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Approuver la demande (validation finale)"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "engager le budget et autoriser la formation"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Bouton Approuver.\n- Statut passe à `APPROVED`.\n- Le `budget_engaged` du département est **automatiquement mis à jour** (+ coût demande)."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-405"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "RH"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Refuser la demande (validation finale)"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "bloquer la demande (budget, non-conformité...)"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Bouton Refuser.\n- Motif obligatoire.\n- Statut passe à `REJECTED`.\n- Le budget n'est pas impacté."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-406"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "RH"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "marquer une demande comme Planifiée"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "confirmer l'inscription administrative"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Statut `APPROVED` -> `PLANNED`.\n- Action manuelle du RH."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "update",
+    "page_id": "2b201e14-8ca3-8038-a220-db5f322ce549",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-407"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "RH"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "uploader la convention de formation signée"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "archiver les documents légaux (Étape 1)"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Sur une demande `PLANNED`, upload du document type `CONVENTION`."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "update",
+    "page_id": "2b201e14-8ca3-80f6-98e1-da1d0e9d057c",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-408"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "RH"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "marquer une demande comme Réalisée"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "clôturer la formation administrativement"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Statut `PLANNED` -> `COMPLETED`.\n- Une pop-up demande de confirmer la réception de l'attestation."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-409"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "RH"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "uploader l'attestation de présence et la facture"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "finaliser l'archivage légal (Étape 2)"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Sur une demande `COMPLETED`, upload des documents `ATTESTATION` et `FACTURE`."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-410"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "RH"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "voir le budget Engagé devenir Réalisé"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "mettre à jour la comptabilité budgétaire"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Quand statut -> `COMPLETED`, le coût est **soustrait** de `budget_engaged` et **ajouté** à `budget_consumed`."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-411"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "RH"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "(ne pas) voir les brouillons (`DRAFT`) des collaborateurs"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "respecter la confidentialité avant soumission"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Le dashboard RH ne doit *jamais* afficher les demandes en statut `DRAFT`."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-412"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "RH"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "exporter la liste des formations réalisées (CSV)"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "pour les reportings légaux (ex: BDES)"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Bouton Export CSV sur le dashboard (filtre : `COMPLETED`, Année N)."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-413"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "RH"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "gérer la liste des organismes (`Providers`)"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "maintenir un référentiel propre"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Interface CRUD simple pour `providers` (Ajouter, Modifier)."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-501"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Admin"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "accéder à un panneau d'administration"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "gérer la structure de l'entreprise"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Section Admin séparée dans l'UI."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-502"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Admin"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "créer, voir, modifier et désactiver des utilisateurs"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "gérer les arrivées et départs"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Interface CRUD pour la table `users`."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-503"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Admin"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "assigner un rôle, un département et un manager à un utilisateur"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "construire l'organigramme et les workflows"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Menus déroulants lors de la création/modification d'un `user`."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "update",
+    "page_id": "2b201e14-8ca3-8036-950a-c17d70ac4836",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-504"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Admin"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "(ne pas) voir les mots de passe des utilisateurs"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "respecter les règles de sécurité de base"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Le champ mot de passe n'est jamais affiché (seulement Réinitialiser mdp)."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-505"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Admin"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "gérer les départements"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "créer les entités budgétaires"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Interface CRUD pour la table `departments`."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "update",
+    "page_id": "2b201e14-8ca3-80fe-bd8d-f3eb4d9cac72",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-506"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Admin"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "allouer le budget annuel par département"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "initialiser l'année fiscale"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Champ `budget_allocated` et `year` sur la fiche département."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "update",
+    "page_id": "2b201e14-8ca3-805b-8c7a-eb7de121080a",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-507"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Admin"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "(V1.5) configurer les types de formation"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "adapter l'outil aux spécificités de l'entreprise"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Gérer les `request_type` (OBLIGATOIRE, PLAN...)."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-508"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Admin"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "voir les logs d'erreurs (simplifié)"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "diagnostiquer les problèmes"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- (Hors V1, mais à prévoir) Une vue des erreurs API."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-414"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "RH"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "voir le montant engagé de chaque département"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "piloter la gestion budgétaire"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Le montant engagé correspond à la somme des coûts des formations **approuvées par un manager puis par le RH** (statut `APPROVED` ou `PLANNED`), dont la date de fin n'est pas encore dépassée."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-415"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Système"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "passer automatiquement une dépense de 'engagée' à 'réalisée'"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "garantir la réalité budgétaire en temps réel"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Dès que la date de fin de la formation (`end_date`) est dépassée ou que le RH clique sur 'Clôturer', le coût passe de 'engagé' à 'réalisé'.\n- Le statut de la demande devient `COMPLETED`.\n- Le montant engagé du département est diminué du coût de la formation, le montant réalisé est augmenté du même montant."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "update",
+    "page_id": "2b201e14-8ca3-80f6-98e1-da1d0e9d057c",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-408"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "RH"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "marquer une demande comme Réalisée"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "clôturer la formation administrativement"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Statut `PLANNED` -> `COMPLETED`.\n- Une pop-up demande de confirmer/saisir les `actual_start_date` et `actual_end_date` (obligatoires pour passer `COMPLETED`).\n- L'upload de l'attestation est fortement suggéré (voir US-409)."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-414"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "RH"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "modifier les dates (planifiées ou réelles) d'une demande"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "refléter les changements de calendrier ou la date de fin réelle"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Sur une demande `APPROVED` ou `PLANNED`, un bouton Modifier les dates est visible.\n- Ouvre une modale pour saisir/modifier `start_date`, `end_date`, `actual_start_date`, `actual_end_date`.\n- L'action est tracée dans l'historique de la demande."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-216"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Utilisateur connecté"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "consulter la page de détail d'une demande"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "voir clairement la différence entre les dates planifiées et réelles"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- La page détail affiche un bloc Dates.\n- Affiche Dates planifiées (`start_date`, `end_date`).\n- Si statut `COMPLETED`, affiche Dates réelles (`actual_start_date`, `actual_end_date`).\nUS-702;Collaborateur;voir la liste des formations à mettre en pratique;savoir sur quoi je dois travailler;- Liste filtrée : APPROVED, PLANNED, COMPLETED.\nUS-703;Collaborateur;définir un plan d'action;concrétiser les acquis;- Ajout d'actions (To-Do) liées à la formation.\nUS-704;Collaborateur;cocher les actions réalisées;suivre ma progression;- Checkbox pour marquer une action comme faite.\nUS-705;Collaborateur;uploader des notes ou documents de synthèse;centraliser mes retours;- Zone d'upload pour 'Notes de formation'.\nUS-706;Manager;voir le suivi de mise en pratique de mon collaborateur;m'assurer du ROI de la formation;- Vue en lecture seule du plan d'action sur la demande.\n\n; AJOUTS POUR CAMPAGNE DE RECUEIL (F-306)\nUS-601;RH;créer une campagne de recueil des besoins;lancer la période budgétaire;- Formulaire : Titre, Dates, Budget Cible.\nUS-602;RH;clôturer une campagne;arrêter la soumission des demandes;- Bouton 'Clôturer'. Statut passe à CLOSED.\nUS-603;Manager;voir la campagne active sur mon dashboard;savoir que je dois saisir mes besoins;- Banner 'Campagne en cours' avec dates.\nUS-604;Manager;soumettre un besoin prévisionnel;remonter les souhaits de mon équipe;- Formulaire simplifié lié à la campagne.\nUS-605;RH;voir tous les besoins d'une campagne;arbitrer globalement;- Vue tableau filtrée par campagne.\nUS-606;RH;arbitrer un besoin (Valider/Refuser);construire le plan de formation;- Actions de masse ou unitaires.\nUS-607;RH;ouvrir une campagne en brouillon;rendre la campagne visible aux collaborateurs;- Bouton 'Ouvrir la campagne' si statut DRAFT. Statut passe à OPEN.\n\n; AJOUTS POUR GESTION UTILISATEURS ETENDUE\nUS-509;Admin;gérer les informations étendues des collaborateurs;avoir une fiche collaborateur complète;- Champs : Identifiant, Etablissement, Division, Département, Date de naissance, Titre, RH rattaché.\nUS-510;Admin;importer des utilisateurs via CSV;initialiser la base utilisateurs en masse;- Upload fichier CSV avec colonnes correspondantes aux champs étendus.\n\n; AJOUTS POUR UNIFICATION FORMULAIRE ET AIDE\nUS-801;Utilisateur;accéder à un formulaire unique pour les demandes;simplifier l'expérience utilisateur;- Une seule route /new-request."
+            }
+          }
+        ]
+      }
+    }
+  }
+]

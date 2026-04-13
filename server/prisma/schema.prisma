@@ -1,0 +1,451 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Models
+
+model Department {
+  id              Int      @id @default(autoincrement())
+  name            String   @unique
+  budget_allocated Decimal @default(0.00)
+  budget_engaged   Decimal @default(0.00)
+  budget_consumed  Decimal @default(0.00)
+  year            Int      @default(2025)
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt
+
+  users           User[]
+  requests        TrainingRequest[]
+  budget_lines    BudgetLine[]
+}
+
+model BudgetLine {
+  id            Int      @id @default(autoincrement())
+  department_id Int
+  department    Department @relation(fields: [department_id], references: [id])
+  
+  legal_entity  String?  // e.g. "Skillhub France"
+  division      String?  // e.g. "Tech"
+  
+  year          Int      @default(2025)
+  amount        Decimal  @default(0.00)
+  
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+}
+
+model User {
+  id            Int      @id @default(autoincrement())
+  email         String   @unique
+  password_hash String
+  first_name    String
+  last_name     String
+  role          String   @default("collaborateur") // Enum: collaborateur, manager, rh, admin
+  
+  department_id Int?
+  department    Department? @relation(fields: [department_id], references: [id])
+  
+  manager_id    Int?
+  manager       User?    @relation("ManagerToUser", fields: [manager_id], references: [id])
+  subordinates  User[]   @relation("ManagerToUser")
+  
+  is_active     Boolean  @default(true)
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+
+  // Extended User Fields
+  employee_id   String?  @unique
+  legal_entity  String?
+  division      String?
+  birth_date    DateTime?
+  job_title     String?
+  
+  assigned_rh_id Int?
+  assigned_rh    User?   @relation("RhToUser", fields: [assigned_rh_id], references: [id])
+  rh_portfolio   User[]  @relation("RhToUser")
+
+  // Regulatory Fields
+  gender        String?  // M, F, OTHER - for Parity Index
+  
+  // HR Data for Pilotage
+  contract_type String?  // CDI, CDD, ALTERNANCE, STAGE
+  job_category  String?  // CADRE, OUVRIER, ETAM (CSP)
+  hired_at      DateTime? // Date d'embauche for Seniority
+  last_professional_interview DateTime? // Date of last professional interview
+  last_annual_review          DateTime? // Date of last annual review
+
+  requests      TrainingRequest[] @relation("UserRequests")
+  managed_requests TrainingRequest[] @relation("ManagerRequests")
+  
+  uploaded_documents Document[]
+  validation_actions ValidationHistory[]
+  wishlist      Wishlist[]
+  training_proposals TrainingProposal[]
+  training_votes     TrainingProposalVote[]
+  certifications     UserCertification[]
+  
+  annual_reviews      AnnualReview[] @relation("UserAnnualReviews")
+  managed_annual_reviews AnnualReview[] @relation("ManagerAnnualReviews")
+  
+  skills              UserSkill[]
+}
+
+model Provider {
+  id            Int      @id @default(autoincrement())
+  name          String   @unique
+  contact_email String?
+  phone         String?
+  url           String?
+  created_at    DateTime @default(now())
+
+  requests      TrainingRequest[]
+  courses       TrainingCourse[]
+}
+
+model TrainingCourse {
+  id              Int      @id @default(autoincrement())
+  external_id     String   @unique
+  
+  provider_id     Int
+  provider        Provider @relation(fields: [provider_id], references: [id], onDelete: Cascade)
+  
+  title           String
+  description     String?
+  objective       String?
+  prerequisites   String? // New field
+  target_audience String?
+  
+  duration_hours  Int?
+  duration_days   Decimal?
+  cost            Decimal?
+  
+  rncp_code       String?
+  is_cpf_eligible Boolean  @default(false)
+  is_internal     Boolean  @default(false)
+  
+  url             String?
+  
+  last_synced_at  DateTime @default(now())
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt
+
+  documents       Document[] // New relation
+  skills          Skill[]    @relation("CourseToSkills")
+  requests        TrainingRequest[]
+}
+
+model TrainingRequest {
+  id            Int           @id @default(autoincrement())
+  title         String
+  description   String?
+  objectives    String?       // New field
+  prerequisites String?       // New field
+  
+  user_id       Int
+  user          User          @relation("UserRequests", fields: [user_id], references: [id])
+  
+  manager_id    Int?
+  manager       User?         @relation("ManagerRequests", fields: [manager_id], references: [id])
+  
+  department_id Int
+  department    Department    @relation(fields: [department_id], references: [id])
+  
+  provider_id   Int?
+  provider      Provider?     @relation(fields: [provider_id], references: [id])
+
+  course_id     Int?
+  course        TrainingCourse? @relation(fields: [course_id], references: [id])
+  
+  cost          Decimal
+  cost_type     String        @default("HT")
+  
+  funding_type  String        @default("COMPANY") // Enum: COMPANY, PERSONAL, CO_FUNDED
+  co_funding_company_amount Decimal?
+  co_funding_personal_amount Decimal?
+  
+  status        String        @default("DRAFT") // Enum: DRAFT, PENDING_MANAGER, ...
+  type          String        @default("PLAN_DEV") // Enum: OBLIGATOIRE, PLAN_DEV, ...
+  
+  start_date    DateTime?
+  end_date      DateTime?
+  
+  actual_start_date DateTime?
+  actual_end_date   DateTime?
+  availability_period String?
+
+  duration_days Decimal?
+  priority      String?   // Enum: LOW, MEDIUM, HIGH
+  personal_investment String? // ROI commitment field
+  
+  
+  // Manager Contract: Expectations set during approval
+  manager_expectations String?  // Mandatory when manager approves
+  
+  created_at    DateTime      @default(now())
+  updated_at    DateTime      @updatedAt
+
+  documents     Document[]
+  history       ValidationHistory[]
+  evaluation    ManagerEvaluation?
+  application_plan ApplicationPlan?
+  
+  campaign_id   Int?
+  campaign      Campaign?     @relation(fields: [campaign_id], references: [id])
+}
+
+model Campaign {
+  id            Int      @id @default(autoincrement())
+  title         String
+  description   String?
+  start_date    DateTime
+  end_date      DateTime
+  budget_target Decimal?
+  status        String   @default("DRAFT") // Enum: DRAFT, OPEN, CLOSED
+  
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+  
+  requests      TrainingRequest[]
+}
+
+model Document {
+  id                  Int          @id @default(autoincrement())
+  request_id          Int?         // Made optional to support Course documents
+  request             TrainingRequest? @relation(fields: [request_id], references: [id], onDelete: Cascade)
+  
+  course_id           Int?         // New field
+  course              TrainingCourse? @relation(fields: [course_id], references: [id], onDelete: Cascade)
+
+  file_name           String
+  file_path           String
+  mimetype            String?
+  file_size_kb        Int?
+  document_type       String       // Enum: DEVIS, PROGRAMME, ...
+  
+  uploaded_by_user_id Int?
+  uploaded_by         User?        @relation(fields: [uploaded_by_user_id], references: [id])
+  
+  uploaded_at         DateTime     @default(now())
+}
+
+model ValidationHistory {
+  id              Int              @id @default(autoincrement())
+  request_id      Int
+  request         TrainingRequest  @relation(fields: [request_id], references: [id], onDelete: Cascade)
+  
+  actor_id        Int
+  actor           User             @relation(fields: [actor_id], references: [id])
+  
+  action          String           // Enum: SUBMITTED, APPROVED, ...
+  comment         String?
+  
+  previous_status String?
+  new_status      String?
+  
+  created_at      DateTime         @default(now())
+}
+
+model ManagerEvaluation {
+  id                  Int             @id @default(autoincrement())
+  request_id          Int             @unique
+  request             TrainingRequest @relation(fields: [request_id], references: [id], onDelete: Cascade)
+  
+  alignment_strategy  Int             // 1-5
+  competence_gap      Int             // 1-5
+  operational_impact  Int             // 1-5
+  roe_expectation     Int             // 1-5
+  content_relevance   Int             // 1-5
+  
+  score               Int             // Calculated total score
+  comment             String?
+  
+  created_at          DateTime        @default(now())
+  updated_at          DateTime        @updatedAt
+}
+
+model Wishlist {
+  id          Int      @id @default(autoincrement())
+  user_id     Int
+  user        User     @relation(fields: [user_id], references: [id])
+  title       String
+  url         String?
+  notes       String?
+  created_at  DateTime @default(now())
+}
+
+model ApplicationPlan {
+  id          Int      @id @default(autoincrement())
+  request_id  Int      @unique
+  request     TrainingRequest @relation(fields: [request_id], references: [id], onDelete: Cascade)
+  
+  progress    Int      @default(0) // 0-100
+  feedback    String?
+  
+  // New fields for "Bilan à chaud"
+  key_takeaways       String? // JSON or text
+  confidence_level    Int?    // 1-10
+  
+  // New fields for "Impact & Suivi"
+  impact_rating       Int?    // 1-5
+  impact_score        Int     @default(0) // 0-100 Calculated score
+  scheduled_review_date DateTime?
+  
+  // Kirkpatrick Level 3 (Behavior)
+  application_rate      Int?      // 0-100
+  behavior_changes      String?   // Text description of behavior changes
+
+  // Kirkpatrick Level 4 (Results)
+  kpis                  String?   // JSON string for KPIs
+  roi_qualitative       String?   // Text description of business impact
+
+  blockers            String?
+  ai_generation_count   Int      @default(0)
+  
+  // Manager Review (Post-Formation)
+  manager_review_comment String?   // Manager's assessment of impact
+  manager_reviewed_at    DateTime? // When manager validated the plan
+  
+  actions     ActionItem[]
+  practice_logs       PracticeLog[]
+  
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
+
+model ActionItem {
+  id          Int      @id @default(autoincrement())
+  plan_id     Int
+  plan        ApplicationPlan @relation(fields: [plan_id], references: [id], onDelete: Cascade)
+  
+  title       String
+  status      String   @default("TODO") // Enum: TODO, DONE, IN_PROGRESS
+  deadline    DateTime?
+  
+  // New fields for enhanced action tracking
+  priority          String?  @default("MEDIUM") // HIGH, MEDIUM, LOW
+  resources_needed  String?
+  outcome           String?
+  is_completed      Boolean  @default(false)
+  
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
+
+model PracticeLog {
+  id          Int             @id @default(autoincrement())
+  plan_id     Int
+  plan        ApplicationPlan @relation(fields: [plan_id], references: [id])
+  date        DateTime        @default(now())
+  content     String
+  skill_index Int?            // 0, 1, 2 corresponding to the skills in key_takeaways
+  mood        String?         // 'success', 'neutral', 'struggle'
+  
+  created_at  DateTime        @default(now())
+}
+
+model TrainingProposal {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  user_id     Int
+  user        User     @relation(fields: [user_id], references: [id])
+  created_at  DateTime @default(now())
+  
+  votes       TrainingProposalVote[]
+}
+
+model TrainingProposalVote {
+  id          Int      @id @default(autoincrement())
+  proposal_id Int
+  proposal    TrainingProposal @relation(fields: [proposal_id], references: [id], onDelete: Cascade)
+  user_id     Int
+  user        User     @relation(fields: [user_id], references: [id])
+  created_at  DateTime @default(now())
+
+  @@unique([proposal_id, user_id])
+}
+
+model UserCertification {
+  id              Int      @id @default(autoincrement())
+  user_id         Int
+  user            User     @relation(fields: [user_id], references: [id])
+  
+  name            String   // e.g. "SST", "Habilitation Électrique B1V"
+  issuing_org     String?  // e.g. "Croix Rouge", "Apave"
+  
+  obtained_at     DateTime
+  expires_at      DateTime? // Nullable if life-long, but usually has expiry
+  
+  document_url    String?  // Link to PDF scan
+  
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt
+}
+
+model AnnualReview {
+  id                Int      @id @default(autoincrement())
+  user_id           Int
+  user              User     @relation("UserAnnualReviews", fields: [user_id], references: [id])
+  
+  manager_id        Int?
+  manager           User?     @relation("ManagerAnnualReviews", fields: [manager_id], references: [id])
+  
+  review_date       DateTime @default(now())
+  year              Int
+  status            String   @default("DRAFT") // DRAFT, SUBMITTED, VALIDATED
+  
+  // Performance & Goals
+  previous_goals_summary String? 
+  new_goals             String? 
+  
+  // Competencies
+  competencies_review   String? 
+  
+  // Comments
+  collaborator_comment  String?
+  manager_comment       String?
+  rh_comment            String?
+  
+  created_at        DateTime @default(now())
+  updated_at        DateTime @updatedAt
+  
+  @@unique([user_id, year])
+}
+
+model Skill {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  category    String?  // Soft Skills, Hard Skills, Langues
+  description String?
+  
+  users       UserSkill[]
+  courses     TrainingCourse[] @relation("CourseToSkills")
+  
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
+
+model UserSkill {
+  id          Int      @id @default(autoincrement())
+  user_id     Int
+  user        User     @relation(fields: [user_id], references: [id])
+  
+  skill_id    Int
+  skill       Skill    @relation(fields: [skill_id], references: [id])
+  
+  level       Int      @default(1) // 1-5
+  notes       String?
+  
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  @@unique([user_id, skill_id])
+}

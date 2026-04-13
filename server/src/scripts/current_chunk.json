@@ -1,0 +1,155 @@
+[
+  {
+    "action": "update",
+    "page_id": "2b201e14-8ca3-80f6-98e1-da1d0e9d057c",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-408"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "RH"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "marquer une demande comme Réalisée"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "clôturer la formation administrativement"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Statut `PLANNED` -> `COMPLETED`.\n- Une pop-up demande de confirmer/saisir les `actual_start_date` et `actual_end_date` (obligatoires pour passer `COMPLETED`).\n- L'upload de l'attestation est fortement suggéré (voir US-409)."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-414"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "RH"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "modifier les dates (planifiées ou réelles) d'une demande"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "refléter les changements de calendrier ou la date de fin réelle"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- Sur une demande `APPROVED` ou `PLANNED`, un bouton Modifier les dates est visible.\n- Ouvre une modale pour saisir/modifier `start_date`, `end_date`, `actual_start_date`, `actual_end_date`.\n- L'action est tracée dans l'historique de la demande."
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "action": "create",
+    "database_id": "2b201e14-8ca3-804b-a2f8-f038b34b8fe6",
+    "properties": {
+      "ID": {
+        "title": [
+          {
+            "text": {
+              "content": "US-216"
+            }
+          }
+        ]
+      },
+      "Role": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "Utilisateur connecté"
+            }
+          }
+        ]
+      },
+      "Action": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "consulter la page de détail d'une demande"
+            }
+          }
+        ]
+      },
+      "Benefice": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "voir clairement la différence entre les dates planifiées et réelles"
+            }
+          }
+        ]
+      },
+      "Criteres_Acceptation": {
+        "rich_text": [
+          {
+            "text": {
+              "content": "- La page détail affiche un bloc Dates.\n- Affiche Dates planifiées (`start_date`, `end_date`).\n- Si statut `COMPLETED`, affiche Dates réelles (`actual_start_date`, `actual_end_date`).\nUS-702;Collaborateur;voir la liste des formations à mettre en pratique;savoir sur quoi je dois travailler;- Liste filtrée : APPROVED, PLANNED, COMPLETED.\nUS-703;Collaborateur;définir un plan d'action;concrétiser les acquis;- Ajout d'actions (To-Do) liées à la formation.\nUS-704;Collaborateur;cocher les actions réalisées;suivre ma progression;- Checkbox pour marquer une action comme faite.\nUS-705;Collaborateur;uploader des notes ou documents de synthèse;centraliser mes retours;- Zone d'upload pour 'Notes de formation'.\nUS-706;Manager;voir le suivi de mise en pratique de mon collaborateur;m'assurer du ROI de la formation;- Vue en lecture seule du plan d'action sur la demande.\n\n; AJOUTS POUR CAMPAGNE DE RECUEIL (F-306)\nUS-601;RH;créer une campagne de recueil des besoins;lancer la période budgétaire;- Formulaire : Titre, Dates, Budget Cible.\nUS-602;RH;clôturer une campagne;arrêter la soumission des demandes;- Bouton 'Clôturer'. Statut passe à CLOSED.\nUS-603;Manager;voir la campagne active sur mon dashboard;savoir que je dois saisir mes besoins;- Banner 'Campagne en cours' avec dates.\nUS-604;Manager;soumettre un besoin prévisionnel;remonter les souhaits de mon équipe;- Formulaire simplifié lié à la campagne.\nUS-605;RH;voir tous les besoins d'une campagne;arbitrer globalement;- Vue tableau filtrée par campagne.\nUS-606;RH;arbitrer un besoin (Valider/Refuser);construire le plan de formation;- Actions de masse ou unitaires.\nUS-607;RH;ouvrir une campagne en brouillon;rendre la campagne visible aux collaborateurs;- Bouton 'Ouvrir la campagne' si statut DRAFT. Statut passe à OPEN.\n\n; AJOUTS POUR GESTION UTILISATEURS ETENDUE\nUS-509;Admin;gérer les informations étendues des collaborateurs;avoir une fiche collaborateur complète;- Champs : Identifiant, Etablissement, Division, Département, Date de naissance, Titre, RH rattaché.\nUS-510;Admin;importer des utilisateurs via CSV;initialiser la base utilisateurs en masse;- Upload fichier CSV avec colonnes correspondantes aux champs étendus.\n\n; AJOUTS POUR UNIFICATION FORMULAIRE ET AIDE\nUS-801;Utilisateur;accéder à un formulaire unique pour les demandes;simplifier l'expérience utilisateur;- Une seule route /new-request."
+            }
+          }
+        ]
+      }
+    }
+  }
+]

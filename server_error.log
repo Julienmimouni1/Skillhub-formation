@@ -1,0 +1,23 @@
+{
+  "name": "PrismaClientKnownRequestError",
+  "code": "P2021",
+  "clientVersion": "5.22.0",
+  "meta": {
+    "modelName": "Campaign",
+    "table": "main.Campaign"
+  }
+}
+PrismaClientKnownRequestError: 
+Invalid `prisma.campaign.create()` invocation in
+C:\Users\julie\OneDrive\Desktop\Skillhub-Formation\server\src\routes\campaignRoutes.js:47:48
+
+  44     return res.status(400).json({ message: 'Dates invalides' });
+  45 }
+  46 
+→ 47 const campaign = await prisma.campaign.create(
+The table `main.Campaign` does not exist in the current database.
+    at $n.handleRequestError (C:\Users\julie\OneDrive\Desktop\Skillhub-Formation\server\node_modules\@prisma\client\runtime\library.js:121:7315)
+    at $n.handleAndLogRequestError (C:\Users\julie\OneDrive\Desktop\Skillhub-Formation\server\node_modules\@prisma\client\runtime\library.js:121:6623)
+    at $n.request (C:\Users\julie\OneDrive\Desktop\Skillhub-Formation\server\node_modules\@prisma\client\runtime\library.js:121:6307)
+    at async l (C:\Users\julie\OneDrive\Desktop\Skillhub-Formation\server\node_modules\@prisma\client\runtime\library.js:130:9633)
+    at async C:\Users\julie\OneDrive\Desktop\Skillhub-Formation\server\src\routes\campaignRoutes.js:47:26
