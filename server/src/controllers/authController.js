@@ -1,8 +1,6 @@
-const { PrismaClient } = require('@prisma/client');
+const prisma = require('../utils/prisma');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
-const prisma = new PrismaClient();
 
 const login = async (req, res) => {
     try {
@@ -10,6 +8,11 @@ const login = async (req, res) => {
 
         if (!email || !password) {
             return res.status(400).json({ error: { status: 400, message: 'Email et mot de passe requis.' } });
+        }
+
+        if (!process.env.JWT_SECRET) {
+            console.error('FATAL ERROR: JWT_SECRET is not defined in environment variables.');
+            return res.status(500).json({ error: { status: 500, message: 'Configuration serveur incomplète (JWT_SECRET).' } });
         }
 
         // Find user
