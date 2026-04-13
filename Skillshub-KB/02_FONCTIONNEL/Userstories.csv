@@ -1,0 +1,205 @@
+ID;Role;Action;Benefice;Criteres_Acceptation
+US-101;Visiteur;voir une page de connexion;pouvoir m'identifier;"- Champs email, mot de passe.
+- Bouton ""Se connecter"".
+- Lien ""Mot de passe oublié"" (Hors V1)."
+US-102;Utilisateur (tous);me connecter avec mon email et mot de passe;accéder à mon espace personnel;"- Si succès : redirection vers le dashboard.
+- Si échec : message d'erreur clair (ex: ""Email ou mot de passe incorrect"").
+- Le JWT est stocké en cookie httpOnly."
+US-103;Utilisateur connecté;pouvoir me déconnecter;sécuriser mon compte;"- Bouton ""Se déconnecter"".
+- Redirection vers la page de connexion.
+- Le cookie JWT est supprimé."
+US-104;Utilisateur connecté;accéder à ma page ""Mon Profil"";voir mes informations personnelles;"- Affiche : Nom, Prénom, Email, Rôle, Département, Manager N+1."
+US-105;Utilisateur connecté;(ne pas) pouvoir modifier mon rôle ou mon manager;garantir l'intégrité de l'organigramme;"- Les champs Rôle, Département, Manager sont en lecture seule."
+US-201;Collaborateur;accéder à mon dashboard personnel;voir la liste de *mes* demandes et leur statut;"- Affiche un tableau de *mes* demandes (Titre, Statut, Coût, Date).
+- Affiche un bouton ""Nouvelle Demande""."
+US-202;Collaborateur;cliquer sur ""Nouvelle Demande"";accéder au formulaire de création;"- Affiche le formulaire de soumission vierge."
+US-203;Collaborateur;remplir les champs de base de ma demande;la qualifier précisément;"- Champs : Titre, Description, Coût estimé (HT), Type (Obligatoire, Plan, CPF...)."
+US-204;Collaborateur;sélectionner un organisme de formation;spécifier qui dispense la formation;"- Peut sélectionner dans une liste (table `providers`).
+- Peut ajouter le nom d'un nouvel organisme (crée une entrée simple)."
+US-205;Collaborateur;renseigner les dates de début et de fin souhaitées;informer sur la période;"- Utilisation de sélecteurs de date (calendriers)."
+US-206;Collaborateur;uploader des documents joints;fournir le devis et le programme;"- Champ d'upload (glisser-déposer).
+- Accepte PDF, DOCX, PNG, JPG.
+- Les fichiers sont liés à la demande (table `documents`)."
+US-207;Collaborateur;sauvegarder ma demande en brouillon (`DRAFT`);y revenir plus tard avant de la soumettre;"- Bouton ""Enregistrer en brouillon"".
+- La demande apparaît dans mon dashboard avec le statut `DRAFT`."
+US-208;Collaborateur;soumettre ma demande pour validation;lancer le workflow d'approbation;"- Bouton ""Soumettre"".
+- Vérification : tous les champs obligatoires sont remplis.
+- Statut passe à `PENDING_MANAGER`."
+US-209;Collaborateur;voir le statut de ma demande changer en temps réel;suivre son avancée;"- Mon dashboard reflète le statut (`PENDING_MANAGER`, `PENDING_RH`, `APPROVED`...)."
+US-210;Collaborateur;recevoir une notification quand ma demande est approuvée;être informé de la décision finale;"- Email reçu (via Make) quand statut = `APPROVED`."
+US-211;Collaborateur;recevoir une notification (avec motif) si ma demande est refusée;comprendre la raison du refus;"- Email reçu (via Make) quand statut = `REJECTED`.
+- L'email contient le commentaire de refus."
+US-212;Collaborateur;voir l'historique des validations sur ma demande;savoir qui a fait quoi;"- Onglet ""Historique"" sur le détail de la demande.
+- Affiche : ""Validé par M. Martin (Manager)"", ""Validé par Mme Dupont (RH)""."
+US-213;Collaborateur;(ne pas) voir les demandes des autres collègues;garantir la confidentialité;"- L'API doit retourner *uniquement* les demandes où `user_id` = mon ID."
+US-214;Collaborateur;modifier ma demande si elle est en `DRAFT`;corriger des erreurs;"- Le formulaire est éditable si `status` = `DRAFT`."
+US-215;Collaborateur;(ne pas) pouvoir modifier ma demande après soumission;garantir l'intégrité du workflow;"- Le formulaire est en lecture seule si `status` != `DRAFT`."
+US-216;Collaborateur;uploader le programme de formation lors de la création de ma demande;fournir le document de référence;"- Champ d'upload pour le programme de formation.
+- Formats acceptés : JPG, JPEG, PNG, PDF.
+- Le fichier est lié à la demande avec le type `PROGRAMME`."
+US-217;Collaborateur;recevoir des suggestions de formations en tapant le nom;trouver facilement des formations disponibles en France;"- Lors de la saisie du titre, affichage de suggestions basées sur un catalogue de formations.
+- Les suggestions proviennent d'une recherche dans un catalogue intégré de formations françaises.
+- Possibilité de sélectionner une suggestion pour pré-remplir les champs."
+US-218;Collaborateur;consulter le catalogue de formations intégré;découvrir les formations disponibles en France;"- Accès à un catalogue de formations avec recherche par mots-clés.
+- Affichage des formations avec organisme, description, durée, coût estimé.
+- Possibilité d'ajouter une formation du catalogue à ma demande."
+US-301;Manager;accéder à un dashboard ""Mon Équipe"";voir les demandes de mes collaborateurs directs en attente;"- Affiche un tableau des demandes où `manager_id` = mon ID ET `status` = `PENDING_MANAGER`."
+US-302;Manager;recevoir une notification (Email/Slack) quand une demande m'est assignée;être réactif et ne pas bloquer le process;"- Make envoie un message quand une demande passe à `PENDING_MANAGER`."
+US-303;Manager;consulter le détail complet d'une demande;prendre une décision éclairée;"- Vois tous les champs (Titre, Coût, Type...).
+- Peux télécharger les pièces jointes (devis, programme)."
+US-304;Manager;voir un rappel visuel du budget de mon département;valider en conscience des coûts;"- Affiche : Budget dispo, Budget engagé, Coût de la demande."
+US-305;Manager;""Approuver"" la demande;l'envoyer à l'étape suivante (RH);"- Bouton ""Approuver"".
+- Statut passe à `PENDING_RH`.
+- Une ligne est ajoutée à `validation_history`."
+US-306;Manager;""Refuser"" la demande;la stopper pour une raison valable;"- Bouton ""Refuser"".
+- Un champ ""Motif"" (commentaire) devient **obligatoire**.
+- Statut passe à `REJECTED`.
+- L'historique est mis à jour."
+US-307;Manager;""Demander un complément"";demander une correction au collaborateur;"- Bouton ""Demander complément"".
+- Champ ""Commentaire"" obligatoire.
+- Statut repasse à `DRAFT`."
+US-311;Manager;cliquer sur une demande de mon équipe;consulter le détail complet pour prendre une décision éclairée;"- Clic sur une demande dans le tableau du dashboard.
+- Redirection vers une page de détail affichant toutes les informations.
+- Affichage des documents joints (programme, devis).
+- Affichage de l'historique des validations."
+US-312;Manager;mettre une demande en ""Priorité 2"";mettre en standby pour arbitrage ultérieur;"- Bouton ""Priorité 2"" disponible sur les demandes `PENDING_MANAGER`.
+- Champ ""Commentaire"" optionnel pour expliquer la raison.
+- Statut passe à `PRIORITY_2`.
+- La demande reste visible mais en attente d'arbitrage.
+- L'historique est mis à jour."
+US-313;Manager;voir les demandes en ""Priorité 2"" dans mon dashboard;suivre les demandes en standby;"- Les demandes `PRIORITY_2` apparaissent dans le tableau du dashboard manager.
+- Affichage distinctif du statut `PRIORITY_2`.
+- Possibilité de les réactiver ultérieurement."
+US-308;Manager;voir l'historique des demandes de mon équipe (pas seulement les miennes);suivre le développement de mes N-1;"- Onglet ""Historique Équipe"" affichant toutes les demandes (approuvées, refusées...) de ses N-1."
+US-309;Manager;(ne pas) voir les demandes d'autres départements;garantir le cloisonnement des données;"- L'API doit filtrer les demandes basées sur l'ID du manager."
+US-310;Manager;recevoir un rappel si une demande est en attente chez moi > 3 jours;ne pas oublier de valider;"- Scénario Make ""Rappel Manager""."
+US-314;Manager;voir une page dédiée ""Budget équipe"";avoir une vision précise et concrète du budget;"- Nouvelle section dans la sidebar.
+- Affiche : Budget Initial, Budget Engagé (Validé/Planifié), Budget Consommé (Réalisé), Budget Restant."
+US-401;RH;accéder à un dashboard global;voir *toutes* les demandes en attente de validation RH;"- Affiche un tableau de *toutes* les demandes avec `status` = `PENDING_RH`."
+US-402;RH;voir l'état des budgets de *tous* les départements;piloter la masse budgétaire;"- Affiche le dashboard des budgets (Alloué, Engagé, Réalisé, Dispo) par département."
+US-403;RH;consulter le détail complet d'une demande;vérifier la conformité et le budget;"- Vois le détail + l'historique (qui a validé avant moi)."
+US-404;RH;""Approuver"" la demande (validation finale);engager le budget et autoriser la formation;"- Bouton ""Approuver"".
+- Statut passe à `APPROVED`.
+- Le `budget_engaged` du département est **automatiquement mis à jour** (+ coût demande)."
+US-405;RH;""Refuser"" la demande (validation finale);bloquer la demande (budget, non-conformité...);"- Bouton ""Refuser"".
+- Motif obligatoire.
+- Statut passe à `REJECTED`.
+- Le budget n'est pas impacté."
+US-406;RH;marquer une demande comme ""Planifiée"";confirmer l'inscription administrative;"- Statut `APPROVED` -> `PLANNED`.
+- Action manuelle du RH."
+US-407;RH;uploader la convention de formation signée;archiver les documents légaux (Étape 1);"- Sur une demande `PLANNED`, upload du document type `CONVENTION`."
+US-408;RH;marquer une demande comme ""Réalisée"";clôturer la formation administrativement;"- Statut `PLANNED` -> `COMPLETED`.
+- Une pop-up demande de confirmer la réception de l'attestation."
+US-409;RH;uploader l'attestation de présence et la facture;finaliser l'archivage légal (Étape 2);"- Sur une demande `COMPLETED`, upload des documents `ATTESTATION` et `FACTURE`."
+US-410;RH;voir le budget ""Engagé"" devenir ""Réalisé"";mettre à jour la comptabilité budgétaire;"- Quand statut -> `COMPLETED`, le coût est **soustrait** de `budget_engaged` et **ajouté** à `budget_consumed`."
+US-411;RH;(ne pas) voir les brouillons (`DRAFT`) des collaborateurs;respecter la confidentialité avant soumission;"- Le dashboard RH ne doit *jamais* afficher les demandes en statut `DRAFT`."
+US-412;RH;exporter la liste des formations réalisées (CSV);pour les reportings légaux (ex: BDES);"- Bouton ""Export CSV"" sur le dashboard (filtre : `COMPLETED`, Année N)."
+US-413;RH;gérer la liste des organismes (`Providers`);maintenir un référentiel propre;"- Interface CRUD simple pour `providers` (Ajouter, Modifier)."
+US-501;Admin;accéder à un panneau d'administration;gérer la structure de l'entreprise;"- Section ""Admin"" séparée dans l'UI."
+US-502;Admin;créer, voir, modifier et désactiver des utilisateurs;gérer les arrivées et départs;"- Interface CRUD pour la table `users`."
+US-503;Admin;assigner un rôle, un département et un manager à un utilisateur;construire l'organigramme et les workflows;"- Menus déroulants lors de la création/modification d'un `user`."
+US-504;Admin;(ne pas) voir les mots de passe des utilisateurs;respecter les règles de sécurité de base;"- Le champ mot de passe n'est jamais affiché (seulement ""Réinitialiser mdp"")."
+US-505;Admin;gérer les départements;créer les entités budgétaires;"- Interface CRUD pour la table `departments`."
+US-506;Admin;allouer le budget annuel par département;initialiser l'année fiscale;"- Champ `budget_allocated` et `year` sur la fiche département."
+US-507;Admin;(V1.5) configurer les types de formation;adapter l'outil aux spécificités de l'entreprise;"- Gérer les `request_type` (OBLIGATOIRE, PLAN...)."
+US-508;Admin;voir les logs d'erreurs (simplifié);diagnostiquer les problèmes;"- (Hors V1, mais à prévoir) Une vue des erreurs API."
+US-414;RH;voir le montant engagé de chaque département;piloter la gestion budgétaire;"- Le montant engagé correspond à la somme des coûts des formations **approuvées par un manager puis par le RH** (statut `APPROVED` ou `PLANNED`), dont la date de fin n'est pas encore dépassée."
+US-415;Système;passer automatiquement une dépense de 'engagée' à 'réalisée';garantir la réalité budgétaire en temps réel;"- Dès que la date de fin de la formation (`end_date`) est dépassée ou que le RH clique sur 'Clôturer', le coût passe de 'engagé' à 'réalisé'.
+- Le statut de la demande devient `COMPLETED`.
+- Le montant engagé du département est diminué du coût de la formation, le montant réalisé est augmenté du même montant."
+
+US-408;RH;marquer une demande comme ""Réalisée"";clôturer la formation administrativement;"- Statut `PLANNED` -> `COMPLETED`.
+- Une pop-up demande de confirmer/saisir les `actual_start_date` et `actual_end_date` (obligatoires pour passer `COMPLETED`).
+- L'upload de l'attestation est fortement suggéré (voir US-409)."
+; AJOUTS POUR GESTION DES DATES RÉELLES
+US-414;RH;modifier les dates (planifiées ou réelles) d'une demande;refléter les changements de calendrier ou la date de fin réelle;"- Sur une demande `APPROVED` ou `PLANNED`, un bouton ""Modifier les dates"" est visible.
+- Ouvre une modale pour saisir/modifier `start_date`, `end_date`, `actual_start_date`, `actual_end_date`.
+- L'action est tracée dans l'historique de la demande."
+US-216;Utilisateur connecté;consulter la page de détail d'une demande;voir clairement la différence entre les dates planifiées et réelles;"- La page détail affiche un bloc ""Dates"".
+- Affiche ""Dates planifiées"" (`start_date`, `end_date`).
+- Si statut `COMPLETED`, affiche ""Dates réelles"" (`actual_start_date`, `actual_end_date`).
+US-702;Collaborateur;voir la liste des formations à mettre en pratique;savoir sur quoi je dois travailler;"- Liste filtrée : APPROVED, PLANNED, COMPLETED."
+US-703;Collaborateur;définir un plan d'action;concrétiser les acquis;"- Ajout d'actions (To-Do) liées à la formation."
+US-704;Collaborateur;cocher les actions réalisées;suivre ma progression;"- Checkbox pour marquer une action comme faite."
+US-705;Collaborateur;uploader des notes ou documents de synthèse;centraliser mes retours;"- Zone d'upload pour 'Notes de formation'."
+US-706;Manager;voir le suivi de mise en pratique de mon collaborateur;m'assurer du ROI de la formation;"- Vue en lecture seule du plan d'action sur la demande."
+
+; AJOUTS POUR CAMPAGNE DE RECUEIL (F-306)
+US-601;RH;créer une campagne de recueil des besoins;lancer la période budgétaire;"- Formulaire : Titre, Dates, Budget Cible."
+US-602;RH;clôturer une campagne;arrêter la soumission des demandes;"- Bouton 'Clôturer'. Statut passe à CLOSED."
+US-603;Manager;voir la campagne active sur mon dashboard;savoir que je dois saisir mes besoins;"- Banner 'Campagne en cours' avec dates."
+US-604;Manager;soumettre un besoin prévisionnel;remonter les souhaits de mon équipe;"- Formulaire simplifié lié à la campagne."
+US-605;RH;voir tous les besoins d'une campagne;arbitrer globalement;"- Vue tableau filtrée par campagne."
+US-606;RH;arbitrer un besoin (Valider/Refuser);construire le plan de formation;"- Actions de masse ou unitaires."
+US-607;RH;ouvrir une campagne en brouillon;rendre la campagne visible aux collaborateurs;"- Bouton 'Ouvrir la campagne' si statut DRAFT. Statut passe à OPEN."
+
+; AJOUTS POUR GESTION UTILISATEURS ETENDUE
+US-509;Admin;gérer les informations étendues des collaborateurs;avoir une fiche collaborateur complète;"- Champs : Identifiant, Etablissement, Division, Département, Date de naissance, Titre, RH rattaché."
+US-510;Admin;importer des utilisateurs via CSV;initialiser la base utilisateurs en masse;"- Upload fichier CSV avec colonnes correspondantes aux champs étendus."
+
+; AJOUTS POUR UNIFICATION FORMULAIRE ET AIDE
+US-801;Utilisateur;accéder à un formulaire unique pour les demandes;simplifier l'expérience utilisateur;"- Une seule route /new-request.
+- Gestion automatique du contexte (Campagne ou Hors Campagne) via paramètre URL."
+US-802;Utilisateur;accéder à une section Aide;trouver des guides d'utilisation;"- Lien 'Aide' dans le menu.
+- Affichage des guides Collaborateur et Manager."
+US-803;Collaborateur;voir une bannière de campagne active;être incité à faire une demande dans le cadre de la campagne;"- Bannière visible sur le Dashboard et le formulaire de création si une campagne est ouverte."
+
+; AJOUTS POUR MISE EN PRATIQUE AVANCEE (BILAN A CHAUD)
+US-707;Collaborateur;détailler 3 compétences clés acquises;structurer mon retour de formation;"- 3 cartes distinctes pour saisir les compétences.
+- Champs : Nom, Confiance (1-10), Besoin d'aide."
+US-708;Collaborateur;contextualiser l'usage de la compétence;projeter l'application concrète;"- Champ 'Terrain de jeu' pour définir le contexte d'application."
+US-709;Collaborateur;définir un défi personnel;gamifier l'apprentissage;"- Champ 'Mon petit défi' pour se fixer un objectif court terme."
+US-710;Collaborateur;indiquer mon ressenti émotionnel;partager mon état d'esprit;"- Sélecteur d'émotion (Anxieux, Neutre, Motivé)."
+US-711;Collaborateur;partager mon bilan à chaud avec mon manager;initier l'échange post-formation;"- Bouton 'Partager avec mon Manager'.
+- Envoi d'une notification/email (simulé) au manager avec le récapitulatif."
+
+; AJOUTS POUR CONTRAT MANAGER ET SUIVI IMPACT (KIRKPATRICK)
+US-901;Manager;définir des objectifs concrets lors de l'approbation;contractualiser les attentes avant la formation;"- Lors de l'approbation, après l'évaluation, une modale 'Attentes & Objectifs' s'affiche.
+- Le champ est obligatoire pour valider la demande.
+- Ces attentes sont enregistrées dans `manager_expectations` sur la demande.
+- Flux en 2 étapes : Évaluation (score) puis Attentes (texte libre)."
+US-902;Collaborateur;voir les attentes de mon manager dans mon espace de suivi;savoir sur quoi je serai évalué;"- L'onglet 'Impact & Suivi' affiche les objectifs saisis par le manager en lecture seule.
+- Affichage dans un encadré distinct en haut de l'onglet.
+- Visible uniquement si le manager a défini des attentes."
+US-903;Manager;saisir mon bilan d'impact post-formation;évaluer l'efficacité réelle (Niveau 4);"- Dans l'onglet 'Impact & Suivi', une section 'Bilan Manager' est réservée au manager.
+- Champ texte libre pour décrire les changements observés et l'atteinte des objectifs.
+- Enregistré dans `manager_review_comment` sur le plan."
+US-904;Manager;valider le bilan de mise en pratique;clôturer le cycle de formation;"- Bouton 'Valider le bilan de mise en pratique' accessible uniquement au manager.
+- Validation obligatoire du commentaire avant de pouvoir valider.
+- Enregistre la date de validation dans `manager_reviewed_at`.
+- Badge 'Validé le [date]' affiché après validation."
+US-905;Collaborateur;remplir l'évaluation Kirkpatrick Niveau 3;mesurer le transfert de compétences;"- Taux de mise en application (slider 0-100%).
+- Zone de texte pour décrire les changements concrets observés.
+- Enregistré dans `application_rate` et `behavior_changes`."
+US-906;Collaborateur;remplir l'évaluation Kirkpatrick Niveau 4;mesurer l'impact sur les résultats;"- Gestion dynamique de KPIs (label, cible, valeur actuelle).
+- Bouton '+ Ajouter' pour créer de nouveaux KPIs.
+- Analyse ROI qualitative (zone de texte).
+- Impact global ressenti (note sur 5 étoiles).
+- Enregistré dans `kpis` (JSON) et `roi_qualitative`."
+US-907;Collaborateur;créer un journal de bord de pratique;suivre mes essais et mises en pratique;"- Onglet 'Journal de Bord' remplace 'Plan d'Action'.
+- Timeline chronologique des entrées.
+- Chaque entrée : date, contenu, compétence liée, humeur (Succès/Neutre/Difficulté).
+- Enregistré dans la table `PracticeLog`."
+US-908;Manager;consulter le journal de bord du collaborateur;suivre la mise en pratique en temps réel;"- Accès en lecture seule au journal de bord.
+- Visible dans l'onglet 'Journal de Bord' de la page de suivi."
+US-416;RH;voir les opportunités d'optimisation de session;réduire les coûts de formation;"- Dashboard affichant les groupes de demandes similaires (>= 5 demandes).
+- Calcul automatique de l'économie potentielle."
+US-417;RH;convertir des demandes individuelles en session intra;créer une session groupée;"- Bouton 'Créer Session Intra' depuis l'opportunité.
+- Pré-remplit une nouvelle demande de session avec les participants."
+US-219;Collaborateur;acc�der � mon Skill Wallet (F-104);visualiser mes comp�tences acquises et t�l�charger mon passeport;"- Page d�di�e listing les formations valid�es.
+- Bouton de t�l�chargement PDF.
+- Affichage des comp�tences valid�es."
+F-305;RH;Visualiser les certifications expirantes;G�rer la conformit� l�gale;Dashboard avec alertes rouge/orange;High;Done
+
+US-307;RH;Visualiser les entretiens professionnels;Identifier les collaborateurs en retard et piloter la conformit�;Widget Dashboard avec indicateurs rouge/orange/vert et liste d�taill�e
+US-310;Collaborateur;indiquer des p�riodes de disponibilit�s;Plus de flexibilit� dans la demande;Collab peut saisir du texte au lieu de dates fixes
+US-311;Collaborateur;confirmer la soumission;�viter les erreurs de saisie;Modale de confirmation avant envoi
+US-312;RH;planifier les dates r�elles;Pr�cision du planning;Le RH fixe les dates apr�s approbation
+US-501;RH;Acc�der au module Entretiens Professionnels;Suivre les �ch�ances l�gales de 2 ans;Tableau de bord avec filtres et alertes retards
+US-502;RH;Acc�der au module Entretiens Annuels;Piloter la performance;Visibilit� globale des EADP
+US-503;RH;V�rifier le Bilan � 6 ans;�viter les sanctions l�gales (abondement CPF);V�rification automatique Entretiens + Formation non-obligatoire
+US-504;RH;G�rer le registre des Habilitations;Assurer la s�curit� sur site;Suivi des dates d'�ch�ance et t�l�chargement des justificatifs
+US-505;RH;Corriger affichage Bilan 6 ans;Assurer la stabilit� de l'interface;Correction syntaxique JSX effectu�e
+US-601;RH;Acc�der au dossier Entretien Annuel;G�rer la performance et le d�veloppement;Formulaire d'entretien annuel avec STAR stories impl�ment�
+US-602;RH;Consulter l'historique des formations;Avoir une visibilit� globale et analytique sur le pass�;Module Historique formations avec filtres et stats impl�ment�
+US-701;Manager;Piloter les comp�tences �quipe (GPEC);Optimiser l'ad�quation poste/ressource;Matrice des comp�tences dynamique avec heatmap et radar chart impl�ment�e

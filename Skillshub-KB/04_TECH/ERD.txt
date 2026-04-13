@@ -1,0 +1,34 @@
++---------------+       +---------------------+       +-------------------+
+|    users      |       |  training_requests  |       |    departments    |
+|---------------|       |---------------------|       |-------------------|
+| PK | id       |       | PK | id             |       | PK | id           |
+|    | email    |<-+    | FK | user_id        |------>|    | name         |
+|    | password |  |    | FK | department_id  |------>|    | budget_allocated |
+|    | first_name|  |    | FK | manager_id     |--+    |    | budget_engaged |
+|    | last_name |  |    |    | title          |  |    |    | budget_consumed|
+| FK | department_id |  |    | cost           |  |    |    | year         |
+| FK | manager_id|  |    |    | status         |  |    +-------------------+
+|    | role      |  |    |    | type           |  |
++---------------+  |    |    | created_at     |  |
+                   |    +---------------------+  |
+                   |                             |
+                   |    +---------------------+  |
+                   |    | validation_history  |  |
+                   |    |---------------------|  |
+                   |    | PK | id             |  |
+                   |    | FK | request_id     |<-+
+                   |    | FK | actor_id       |----(users.id)
+                   |    |    | action         |
+                   |    |    | comment        |
+                   |    |    | created_at     |
+                   |    +---------------------+
+
++---------------+       +---------------------+
+|   providers   |       |      documents      |
+|---------------|       |---------------------|
+| PK | id       |       | PK | id             |
+|    | name     |       | FK | request_id     |<--(training_requests.id)
+|    | contact  |       |    | file_name      |
+|    | url      |       |    | file_path      |
+|               |       |    | document_type  | (e.g., 'DEVIS', 'CONVENTION', 'ATTESTATION')
++---------------+       +---------------------+
