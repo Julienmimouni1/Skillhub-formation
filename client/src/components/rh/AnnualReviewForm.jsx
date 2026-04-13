@@ -30,7 +30,7 @@ export default function AnnualReviewForm({ userId, onClose, readOnly = false }) 
     const fetchDossier = async () => {
         try {
             setLoading(true);
-            const { data } = await axios.get(`http://localhost:3000/api/v1/annual-reviews/dossier/${userId}`, { withCredentials: true });
+            const { data } = await axios.get(`/annual-reviews/dossier/${userId}`, { withCredentials: true });
             setDossier(data);
         } catch (error) {
             console.error('Error fetching dossier:', error);
@@ -42,7 +42,7 @@ export default function AnnualReviewForm({ userId, onClose, readOnly = false }) 
     const handleSave = async (status = 'DRAFT') => {
         try {
             setSaving(true);
-            await axios.post(`http://localhost:3000/api/v1/annual-reviews`, {
+            await axios.post(`/annual-reviews`, {
                 userId,
                 year: dossier.review.year,
                 status,

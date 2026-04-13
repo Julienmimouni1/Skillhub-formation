@@ -10,7 +10,7 @@ const CertificationWidget = () => {
         const fetchCertifications = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get('http://localhost:3000/api/v1/certifications/expiring', {
+                const response = await axios.get('/certifications/expiring', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setCertifications(response.data);

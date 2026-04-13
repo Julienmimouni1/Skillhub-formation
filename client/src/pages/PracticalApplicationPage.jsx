@@ -18,7 +18,7 @@ export default function PracticalApplicationPage() {
         try {
             // Fetch requests for the user (assuming endpoint exists and returns user's requests)
             // Filtering for APPROVED, PLANNED, COMPLETED
-            const response = await axios.get('http://localhost:3001/api/v1/requests', { withCredentials: true });
+            const response = await axios.get('/requests', { withCredentials: true });
             const validStatuses = ['APPROVED', 'PLANNED', 'COMPLETED'];
             // API returns { requests: [...] }
             const filtered = (response.data.requests || []).filter(r => validStatuses.includes(r.status));
