@@ -20,7 +20,8 @@ router.post('/users', createUser);
 router.put('/users/:id', updateUser);
 
 const multer = require('multer');
-const upload = multer({ dest: 'uploads/' });
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 router.post('/users/import', upload.single('file'), importUsers);
 router.get('/users/import/template', downloadUserImportTemplate);
 
