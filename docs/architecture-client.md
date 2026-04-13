@@ -1,5 +1,6 @@
 # Frontend Architecture (Client)
 
+t
 ## Overview
 
 The client is a Single Page Application (SPA) built with **React 18** and **Vite**. It provides a modern, responsive user interface for all user roles (Employees, Managers, HR).
